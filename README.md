@@ -59,7 +59,8 @@ A family of open specifications for the answer-engine and agent era:
 | [Agent Cards](https://github.com/mizcausevic-dev/agent-cards-spec) | Declarative agent capability + refusal disclosure |
 | [AI Evidence Format](https://github.com/mizcausevic-dev/ai-evidence-format-spec) | Structured citations for LLM-generated claims |
 | [MCP Tool Cards](https://github.com/mizcausevic-dev/mcp-tool-card-spec) | Per-tool disclosure for Model Context Protocol servers |
-| **AI Tutor Cards** (this) | EdTech-specialized agent disclosure |
+| **AI Tutor Cards** (this) | EdTech-specialized agent disclosure (vendor-side) |
+| [Student AI Disclosure](https://github.com/mizcausevic-dev/student-ai-disclosure-spec) | Student-side disclosure attached to submitted work |
 
 ---
 
