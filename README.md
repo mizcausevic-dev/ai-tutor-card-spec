@@ -61,6 +61,7 @@ A family of open specifications for the answer-engine and agent era:
 | [MCP Tool Cards](https://github.com/mizcausevic-dev/mcp-tool-card-spec) | Per-tool disclosure for Model Context Protocol servers |
 | **AI Tutor Cards** (this) | EdTech-specialized agent disclosure (vendor-side) |
 | [Student AI Disclosure](https://github.com/mizcausevic-dev/student-ai-disclosure-spec) | Student-side disclosure attached to submitted work |
+| [Classroom AI AUP](https://github.com/mizcausevic-dev/classroom-ai-aup-spec) | District / school / course AI policy (third leg of the EdTech trio) |
 
 ---
 
