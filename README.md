@@ -1,5 +1,8 @@
 # AI Tutor Cards
 
+[![Validate examples](https://github.com/mizcausevic-dev/ai-tutor-card-spec/actions/workflows/validate.yml/badge.svg)](https://github.com/mizcausevic-dev/ai-tutor-card-spec/actions/workflows/validate.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
 A draft specification for **AI Tutor Cards** — declarative documents that disclose what an AI tutor is for, how it teaches, and what safety and privacy protections it carries.
 
 Tutors are a specialized class of AI agent with stakes a general-purpose agent doesn't carry: the audience can be a minor, the buyer is often a school district or parent, and the regulatory surface includes FERPA, COPPA, and state-level student-data laws. A Tutor Card is the document that makes those properties machine-readable for procurement reviewers, accreditation bodies, parents, and the LMS itself.
