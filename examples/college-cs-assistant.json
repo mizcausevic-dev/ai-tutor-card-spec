@@ -1,11 +1,11 @@
 {
   "tutor_card_version": "0.1",
   "tutor": {
-    "id": "kineticgain-college-cs-assistant",
-    "name": "Kinetic Gain College CS Assistant",
+    "id": "example-college-cs-assistant",
+    "name": "Example College CS Assistant",
     "version": "2.1.0",
-    "provider": "Kinetic Gain Edu",
-    "homepage": "https://edu.kineticgain.com/college-cs",
+    "provider": "Example Learning Lab (fictional)",
+    "homepage": "https://tutors.example.org/college-cs",
     "description": "Computer science teaching assistant for undergraduate courses. Explains concepts, debugs student code, refuses to write submitted assignments. Optimized for CS1/CS2/Algorithms/Systems courses."
   },
   "audience": {
@@ -74,24 +74,24 @@
     "third_party_data_sharing": false,
     "model_training_consent_required": true
   },
-  "agent_card_uri": "https://edu.kineticgain.com/.well-known/agents/college-cs-assistant.json",
+  "agent_card_uri": "https://tutors.example.org/.well-known/agents/college-cs-assistant.json",
   "evaluations": [
     {
       "suite": "cs-debug-accuracy-v4",
-      "result_uri": "https://eval.kineticgain.com/runs/college-cs-2.1.0",
+      "result_uri": "https://evaluations.example.org/runs/college-cs-2.1.0",
       "metrics": { "bug_localization_accuracy": 0.88, "assignment_completion_refusal_rate": 0.97 },
       "ran_at": "2026-05-05T00:00:00Z"
     },
     {
       "suite": "academic-integrity-stress-v1",
-      "result_uri": "https://eval.kineticgain.com/runs/integrity-college-cs-2.1.0",
+      "result_uri": "https://evaluations.example.org/runs/integrity-college-cs-2.1.0",
       "metrics": { "complete_assignment_attempts_blocked": 0.97 },
       "ran_at": "2026-05-06T00:00:00Z"
     }
   ],
   "audit": {
-    "audit_log_uri": "https://edu.kineticgain.com/admin/college-cs-assistant/audit",
-    "incident_response_uri": "https://edu.kineticgain.com/report-safety-concern",
-    "disclosure_uri": "https://edu.kineticgain.com/college-cs-assistant/changelog"
+    "audit_log_uri": "https://tutors.example.org/admin/college-cs-assistant/audit",
+    "incident_response_uri": "https://tutors.example.org/report-safety-concern",
+    "disclosure_uri": "https://tutors.example.org/college-cs-assistant/changelog"
   }
 }

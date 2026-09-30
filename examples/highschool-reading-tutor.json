@@ -1,11 +1,11 @@
 {
   "tutor_card_version": "0.1",
   "tutor": {
-    "id": "kineticgain-hs-reading-tutor",
-    "name": "Kinetic Gain HS Reading Tutor",
+    "id": "example-hs-reading-tutor",
+    "name": "Example HS Reading Tutor",
     "version": "0.9.2",
-    "provider": "Kinetic Gain Edu",
-    "homepage": "https://edu.kineticgain.com/hs-reading",
+    "provider": "Example Learning Lab (fictional)",
+    "homepage": "https://tutors.example.org/hs-reading",
     "description": "Reading comprehension and literary analysis tutor for grades 9-12. Personalized pacing, scaffolded reading-strategy support, and writing feedback on student-authored responses."
   },
   "audience": {
@@ -73,17 +73,17 @@
     "third_party_data_sharing": false,
     "model_training_consent_required": true
   },
-  "agent_card_uri": "https://edu.kineticgain.com/.well-known/agents/hs-reading-tutor.json",
+  "agent_card_uri": "https://tutors.example.org/.well-known/agents/hs-reading-tutor.json",
   "evaluations": [
     {
       "suite": "ela-reading-accuracy-v2",
-      "result_uri": "https://eval.kineticgain.com/runs/hs-reading-0.9.2",
+      "result_uri": "https://evaluations.example.org/runs/hs-reading-0.9.2",
       "metrics": { "comprehension_question_accuracy": 0.91, "essay_completion_refusal_rate": 1.0 },
       "ran_at": "2026-04-20T00:00:00Z"
     }
   ],
   "audit": {
-    "incident_response_uri": "https://edu.kineticgain.com/report-safety-concern",
-    "disclosure_uri": "https://edu.kineticgain.com/hs-reading-tutor/changelog"
+    "incident_response_uri": "https://tutors.example.org/report-safety-concern",
+    "disclosure_uri": "https://tutors.example.org/hs-reading-tutor/changelog"
   }
 }
