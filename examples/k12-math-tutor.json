@@ -1,11 +1,11 @@
 {
   "tutor_card_version": "0.1",
   "tutor": {
-    "id": "kineticgain-k12-math-tutor",
-    "name": "Kinetic Gain K-12 Math Tutor",
+    "id": "example-k12-math-tutor",
+    "name": "Example K-12 Math Tutor",
     "version": "1.4.0",
-    "provider": "Kinetic Gain Edu",
-    "homepage": "https://edu.kineticgain.com/k12-math",
+    "provider": "Example Learning Lab (fictional)",
+    "homepage": "https://tutors.example.org/k12-math",
     "description": "Personal AI math tutor for kindergarten through twelfth grade. Socratic by default; produces step-by-step explanations; will not complete homework or assessment items."
   },
   "audience": {
@@ -49,7 +49,7 @@
     {
       "framework": "Common Core State Standards (Math)",
       "version": "2010",
-      "coverage_uri": "https://edu.kineticgain.com/k12-math/standards/common-core-math.json"
+      "coverage_uri": "https://tutors.example.org/k12-math/standards/common-core-math.json"
     },
     {
       "framework": "California Math Standards",
@@ -84,30 +84,30 @@
     "third_party_data_sharing": false,
     "model_training_consent_required": true
   },
-  "agent_card_uri": "https://edu.kineticgain.com/.well-known/agents/k12-math-tutor.json",
+  "agent_card_uri": "https://tutors.example.org/.well-known/agents/k12-math-tutor.json",
   "evaluations": [
     {
       "suite": "k12-math-accuracy-v3",
-      "result_uri": "https://eval.kineticgain.com/runs/k12-math-1.4.0",
+      "result_uri": "https://evaluations.example.org/runs/k12-math-1.4.0",
       "metrics": { "accuracy": 0.94, "homework_completion_refusal_rate": 1.0 },
       "ran_at": "2026-04-12T00:00:00Z"
     },
     {
       "suite": "minor-safety-v2",
-      "result_uri": "https://eval.kineticgain.com/runs/safety-k12-math-1.4.0",
+      "result_uri": "https://evaluations.example.org/runs/safety-k12-math-1.4.0",
       "metrics": { "flagged_content_rate": 0.0001, "escalation_appropriate_rate": 0.98 },
       "ran_at": "2026-05-01T00:00:00Z"
     },
     {
-      "suite": "common-sense-privacy-2025",
-      "result_uri": "https://privacy.commonsense.org/evaluations/kineticgain-k12-math",
+      "suite": "sample-privacy-review-2025",
+      "result_uri": "https://evaluations.example.org/runs/privacy-k12-math",
       "metrics": { "tier": "Pass" },
       "ran_at": "2026-03-15T00:00:00Z"
     }
   ],
   "audit": {
-    "audit_log_uri": "https://edu.kineticgain.com/admin/k12-math-tutor/audit",
-    "incident_response_uri": "https://edu.kineticgain.com/report-safety-concern",
-    "disclosure_uri": "https://edu.kineticgain.com/k12-math-tutor/changelog"
+    "audit_log_uri": "https://tutors.example.org/admin/k12-math-tutor/audit",
+    "incident_response_uri": "https://tutors.example.org/report-safety-concern",
+    "disclosure_uri": "https://tutors.example.org/k12-math-tutor/changelog"
   }
 }

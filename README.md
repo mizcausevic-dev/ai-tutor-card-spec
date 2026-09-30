@@ -3,7 +3,7 @@
 [![Validate examples](https://github.com/mizcausevic-dev/ai-tutor-card-spec/actions/workflows/validate.yml/badge.svg)](https://github.com/mizcausevic-dev/ai-tutor-card-spec/actions/workflows/validate.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-A draft specification for **AI Tutor Cards** — declarative documents that disclose what an AI tutor is for, how it teaches, and what safety and privacy protections it carries.
+A draft specification for **AI Tutor Cards** — declarative documents that disclose what an AI tutor is for, how it teaches, and what safety and privacy protections its publisher claims to provide. A card is a disclosure, not independent proof of compliance or runtime behavior.
 
 Tutors are a specialized class of AI agent with stakes a general-purpose agent doesn't carry: the audience can be a minor, the buyer is often a school district or parent, and the regulatory surface includes FERPA, COPPA, and state-level student-data laws. A Tutor Card is the document that makes those properties machine-readable for procurement reviewers, accreditation bodies, parents, and the LMS itself.
 
@@ -25,9 +25,9 @@ An Agent Card describes capabilities and refusals for any AI agent. A Tutor Card
 
 Three reasons.
 
-1. **Machine-readable procurement.** District procurement teams reviewing AI tutors today read PDFs and run their own pilots. A Tutor Card lets a procurement reviewer diff two tutors side by side mechanically: which one has stricter content filters, which one has a stricter homework policy, which one is FERPA-attested.
+1. **Machine-readable procurement.** A Tutor Card lets a procurement reviewer compare two tutors' declared content filters, homework policies, and privacy posture. Reviewers still need evidence for safety and legal claims.
 2. **LMS visibility.** A school's LMS (Canvas, Schoology, Google Classroom) can read a Tutor Card on integration day and surface "what this tutor will and won't do" to teachers without anyone reading a 40-page vendor whitepaper.
-3. **Parent visibility.** A parent (or a parent-facing portal) can read a Tutor Card without an account at the vendor. Discoverable, signed, auditable.
+3. **Parent visibility.** A parent (or a parent-facing portal) can read a published Tutor Card without an account at the vendor. Signing and independent audit are optional conformance levels, not properties of every card.
 
 ## Quickstart
 
@@ -37,11 +37,15 @@ Three reasons.
 4. Serve at `https://<your-product>/.well-known/tutors/<tutor-id>.json` with `Content-Type: application/json`.
 5. Optionally reference your tutor's [Agent Card](https://github.com/mizcausevic-dev/agent-cards-spec) via the `agent_card_uri` field so reviewers can chain through.
 
+To validate this repository's own examples against its current local schema, run `npm ci` then `npm test` with a supported Node LTS release. This private package is for development checks only; it is not a published npm library. The test also rejects a known-invalid under-13/COPPA fixture.
+
 ## Files in this repo
 
 - [`SPEC.md`](SPEC.md) — full v0.1 specification
 - [`tutor-card.schema.json`](tutor-card.schema.json) — JSON Schema (draft 2020-12)
 - [`examples/`](examples/) — reference Tutor Cards for a K-12 math tutor, a high-school reading tutor, and a college-level computer-science assistant
+
+**Examples are fictional.** Their providers, endpoints, evaluation results, privacy assertions, and safety assertions illustrate the format only. The reserved `example.org` domains are intentionally not live tutor services. Do not use example values as procurement evidence.
 
 ## Status
 

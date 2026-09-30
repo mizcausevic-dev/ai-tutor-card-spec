@@ -38,11 +38,11 @@
   "allOf": [
     {
       "if": {
-        "properties": { "audience": { "properties": { "age_range_min": { "type": "integer", "maximum": 12 } } } }
+        "properties": { "audience": { "type": "object", "properties": { "age_range_min": { "type": "integer", "maximum": 12 } } } }
       },
       "then": {
         "properties": {
-          "data_privacy": { "properties": { "coppa_compliant": { "const": true } } }
+          "data_privacy": { "type": "object", "properties": { "coppa_compliant": { "const": true } } }
         }
       }
     }
@@ -54,7 +54,7 @@
       "required": ["id", "name", "version", "provider", "description"],
       "additionalProperties": false,
       "properties": {
-        "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*[a-z0-9]$" },
+        "id": { "type": "string", "pattern": "^[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$" },
         "name": { "type": "string", "minLength": 1 },
         "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+(?:[-+].+)?$" },
         "provider": { "type": "string", "minLength": 1 },

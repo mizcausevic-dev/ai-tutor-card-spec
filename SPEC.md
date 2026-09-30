@@ -3,7 +3,7 @@
 **Status:** Draft
 **Version:** 0.1.0
 **Editor:** Miz Causevic
-**License:** AGPL-3.0 (this document, schema, and examples). Implementations are unrestricted.
+**License:** MIT (this document, schema, and examples). Implementations are unrestricted.
 
 RFC 2119 keywords (**MUST**, **MUST NOT**, **SHOULD**, **SHOULD NOT**, **MAY**) apply throughout.
 
@@ -41,7 +41,9 @@ Every Tutor Card **MUST** declare:
 
 - An **age range** (`audience.age_range_min` / `age_range_max`) — used for COPPA gating
 - A **grade range** (`audience.grade_range_min` / `grade_range_max`) — strings, e.g. `"K"`, `"5"`, `"12"`, `"undergrad"`, `"grad"`, `"adult"`
-- A **language list** (`audience.language_codes`) — BCP-47 codes
+- A **language list** (`audience.language_codes`) — the v0.1 schema accepts a limited BCP-47 subset: two or three lowercase language letters, optionally followed by a hyphen and a two-letter uppercase region (for example, `en` or `en-US`). Other valid BCP-47 forms need a future schema revision.
+
+`audience.age_range_min` **MUST NOT** exceed `audience.age_range_max`. Consumers should check this semantic constraint separately; JSON Schema 2020-12 cannot compare two values within the same instance without a nonstandard extension.
 
 A Tutor Card **SHOULD** declare:
 
@@ -89,7 +91,7 @@ If the tutor is sold to US K-12 schools, `data_privacy.ferpa_compliant` **MUST**
 
 ### 4.1 `tutor_card_version` (required)
 
-A semver string. **MUST** be `"0.1"` for documents conforming to this draft.
+A specification version identifier. **MUST** be `"0.1"` for documents conforming to this draft.
 
 ### 4.2 `tutor` (required)
 
@@ -172,7 +174,7 @@ URI of the tutor's underlying Agent Card document conforming to [agent-cards-spe
 
 ### 4.10 `evaluations` (optional)
 
-An array of eval results from independent assessments (academic accuracy, safety, age-appropriateness). Each:
+An array of publisher-listed evaluation results (academic accuracy, safety, age-appropriateness). The schema does not establish who ran an evaluation or whether it was independent. Each:
 
 | Field | Type | Required | Description |
 |---|---|---|---|
@@ -197,7 +199,7 @@ A Tutor Card **MUST** be served at:
 https://<vendor-origin>/.well-known/tutors/<tutor-id>.json
 ```
 
-The response **MUST** be valid JSON. The response **SHOULD** be served over HTTPS. The response **SHOULD** include a `Cache-Control` header consistent with the tutor's expected update cadence.
+The response **MUST** be valid JSON and served over HTTPS. The response **SHOULD** include a `Cache-Control` header consistent with the tutor's expected update cadence.
 
 ## 6. Conformance levels
 
@@ -207,9 +209,13 @@ The response **MUST** be valid JSON. The response **SHOULD** be served over HTTP
 | **Level 2 — Verify** | Level 1, plus the Tutor Card is signed (detached JWS) or cross-attested by a recognized accreditation body. |
 | **Level 3 — Audit** | Level 2, plus a working `audit.incident_response_uri` returning HTTP 2xx for valid incident reports, AND at least one independent eval entry with `ran_at` within the last 12 months. |
 
+Levels 2 and 3 are draft review criteria. This version does not define a signature verification profile, accreditation trust list, incident-report request contract, or independent-evaluator registry. A schema-valid card alone establishes only Level 1; higher levels require separate human and technical evidence.
+
 ## 7. Security and privacy considerations
 
 - **Truthful disclosure.** A Tutor Card is a publisher's representation. Consumers **MUST NOT** treat the card as ground truth for runtime safety; it is a disclosure document, not an enforcement mechanism. Procurement reviewers **SHOULD** independently spot-check claims, especially `mandated_reporter_protocol` and `data_sharing_with_parents`.
+- **Legal-status fields.** `ferpa_compliant`, `coppa_compliant`, and `gdpr_compliant` are publisher assertions, not certifications granted by this specification or its validator. Reviewers **MUST NOT** infer legal compliance from a `true` value alone. Evaluate the vendor's actual data flows, contracts, controls, and jurisdiction using authoritative guidance such as the [US Department of Education's FERPA vendor guidance](https://studentprivacy.ed.gov/faq/i-want-use-online-tool-or-application-part-my-course-however-i-am-worried-it-violation-ferpa) and the [FTC's COPPA FAQ](https://www.ftc.gov/business-guidance/resources/complying-coppa-frequently-asked-questions).
+- **Human escalation.** `mandated_reporter_protocol` describes a claimed escalation workflow to responsible people. It does not make an AI system a legally mandated reporter or prove that a human received a disclosure.
 - **Audience age accuracy.** A vendor that markets a tutor to under-13 audiences and declares `coppa_compliant: false` is making a self-incriminating statement. Reviewers **SHOULD** treat the conjunction (age < 13) AND (NOT `coppa_compliant`) as a procurement-blocking signal.
 - **Field drift over time.** Tutors change. Vendors **MUST** bump `tutor.version` when any field changes that affects educator or parent expectations (homework policy, assessment policy, content filter strength, data sharing).
 - **Re-validation cadence.** Schools **SHOULD** re-fetch Tutor Cards on a quarterly cadence at minimum to catch silent drift.

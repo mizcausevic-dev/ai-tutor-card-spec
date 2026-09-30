@@ -1,48 +1,16 @@
 # Changelog
 
-All notable changes to this project are documented here.
+This file summarizes changes visible in this repository. A schema version, source commit, or package.json version does not by itself establish a deployed tutor, npm publication, or tagged release.
 
-## [1.0.0] - 2026-05-12
+## Unreleased review changes
 
-### Released
-- Shipped **ai-tutor-card-spec** as a public artifact for teams dealing with answer-engine visibility.
-- Packaged the current implementation, documentation, validation flow, and proof surfaces into a repo that can be reviewed by technical and operating stakeholders.
-- Clarified the core problem the project is addressing: weak semantic packaging, inconsistent structured data, and poor answer-system discoverability.
+- Align the specification's license statement with the MIT LICENSE and clarify HTTPS discovery and the `0.1` version identifier.
+- Mark examples as fictional and move their vendor and evaluation URLs to reserved `example.org` domains. Consumers that copied example IDs or URLs will need to update those fixtures.
+- Keep the Tutor Card wire format at `0.1`; no required JSON fields were added or removed. The schema now accepts one-character tutor IDs and uses explicit object types in its conditional rule.
+- Add a private, first-party AJV check against this repository's schema, including a known-invalid control; retain the cross-suite action pinned to its reviewed v0.1.0 commit.
 
-### Why this mattered
-- Existing approaches in SEO crawlers, analytics platforms, and schema validators were useful for parts of the workflow.
-- They still left out a review layer that connected technical content hygiene with answer readiness and citation potential.
-- This release made the repo read like an operational capability rather than a narrow technical demo.
+## Observed source milestones
 
-## [0.1.0] - 2026-03-17
-
-### Shipped
-- Cut the first coherent internal version of **ai-tutor-card-spec** with stable domain objects, review surfaces, and decision outputs.
-- Established the first reviewable version of the architecture described as: AI Tutor Cards v0.1 draft. Disclosure spec for AI agents in an educational role: audience (age, grade, subjects), pedagogy (Socratic / homework_policy / assessment_policy), safety & privacy (FERPA / COPPA / mandated-reporter). Sixth spec in the Kinetic Gain Protocol Suite.
-- Focused the repo around actionability instead of passive reporting.
-
-## [Prototype] - 2025-06-20
-
-### Built
-- Built the first runnable prototype for the repo's main workflow and decision model.
-- Validated the concept against pressure points such as answer-engine discoverability gaps, thin structured data, and inconsistent entity linking.
-- Used the prototype phase to test whether the project could drive action, not just present information.
-
-## [Design Phase] - 2022-11-10
-
-### Designed
-- Defined the system around operator-first and decision-legible outputs.
-- Chose interfaces and examples that made sense for growth, search, content, and analytics teams.
-- Avoided reducing the project to a generic dashboard, CRUD app, or fashionable wrapper around the stack.
-
-## [Idea Origin] - 2022-03-10
-
-### Observed
-- The original idea surfaced while looking at how teams were handling weak semantic packaging, inconsistent structured data, and poor answer-system discoverability.
-- The recurring pattern was that teams had data and tools, but still lacked a usable operating layer for the hardest decisions.
-
-## [Background Signals] - 2022-08-09
-
-### Context
-- Earlier platform, governance, and operator-tooling work made one pattern hard to ignore: the systems that create the most drag are often the ones with partial controls and weak operational coherence, not the ones with no controls at all.
-- That pattern shaped the thinking behind this repo well before the public version existed.
+- 2026-05-12: initial AI Tutor Cards v0.1 draft and cross-links to related specifications.
+- 2026-05-13: MIT relicense and example-validation workflow.
+- 2026-06-11: CI action runtime update.
